@@ -1,0 +1,13 @@
+#app main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.menu {
+    border: 2px solid gold;
+}
+
+.menu article {
+    border: 2px solid hotpink;
+    cursor: pointer;
+}
