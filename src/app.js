@@ -43,7 +43,7 @@ function Counter(props) {
 
 function Menu(props) {
   const menuItems = props.products.map((product, index) => (
-    <li className="centered" key={product.id} index={index}>
+    <li key={product.id} index={index}>
       <Product
         details={product}
         handleAddProduct={() => props.handleAddProduct(product.id)}
@@ -53,7 +53,7 @@ function Menu(props) {
 
   return (
     <div className="menu">
-      <ul className="productList">{menuItems}</ul>
+      <ul className="productList centered">{menuItems}</ul>
     </div>
   );
 }
