@@ -23,7 +23,7 @@ function Product(props) {
   const { id, name, price, image } = props.details;
   const imagePath = "public/assets/" + image;
   return (
-    <article onClick={() => props.onClick(id)}>
+    <article onClick={() => props.handleAddProduct ? props.handleAddProduct(id) : undefined}>
       <img src={imagePath} alt={name}></img>
       <h2>{name}</h2>
       <span>{price / 100} €</span>
@@ -34,9 +34,9 @@ function Product(props) {
 function Counter(props) {
   return (
     <div className="counter centered">
-      <button onClick={props.onRemoveProduct}>-</button>
+      <button onClick={props.handleRemoveProduct}>-</button>
       <span>{props.quantity}</span>
-      <button onClick={props.onAddProduct}>+</button>
+      <button onClick={props.handleAddProduct}>+</button>
     </div>
   );
 }
@@ -46,7 +46,7 @@ function Menu(props) {
     <li className="centered" key={product.id} index={index}>
       <Product
         details={product}
-        onClick={() => props.onAddProduct(product.id)}
+        handleAddProduct={() => props.handleAddProduct(product.id)}
       />
     </li>
   ));
@@ -65,8 +65,8 @@ function Cart(props) {
       <Product details={orderedItem} />
       <Counter
         quantity={orderedItem.quantity}
-        onAddProduct={() => props.onAddProduct(orderedItem.id)}
-        onRemoveProduct={() => props.onRemoveProduct(orderedItem.id)}
+        handleAddProduct={() => props.handleAddProduct(orderedItem.id)}
+        handleRemoveProduct={() => props.handleRemoveProduct(orderedItem.id)}
       />
     </li>
   ));
@@ -150,12 +150,12 @@ class App extends React.Component {
         <main>
           <Menu
             products={this.props.products}
-            onAddProduct={(id) => this.handleAddProduct(id)}
+            handleAddProduct={(id) => this.handleAddProduct(id)}
           />
           <Cart
             orderedItems={this.state.orderedItems}
-            onAddProduct={(id) => this.handleAddProduct(id)}
-            onRemoveProduct={(id) => this.handleRemoveProduct(id)}
+            handleAddProduct={(id) => this.handleAddProduct(id)}
+            handleRemoveProduct={(id) => this.handleRemoveProduct(id)}
             totalPrice={this.state.totalPrice}
           />
         </main>
