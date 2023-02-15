@@ -1,13 +1,121 @@
+:root {
+  --primary-color: #ffc72c;
+  --primary-color-light: #fdedc0;
+  --secondary-color: #da291c;
+  --secondary-color-light: rgba(218, 41, 28, 0.4);
+  --black: #27251f;
+  --black-light: rgba(39, 37, 31, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  color: var(--black);
+  background: var(--primary-color-light)
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 #app main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0.4rem;
+}
+
+#app h1 {
+  text-align: center;
+}
+
+#app main div {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .menu {
-    border: 2px solid gold;
+  background: var(--primary-color-light);
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  width: 100%;
 }
 
-.menu article {
-    border: 2px solid hotpink;
-    cursor: pointer;
+.cart {
+  background: var(--secondary-color-light);
+  border: 2px solid var(--secondary-color-light);
+  border-radius: 8px;
+  width: 100%;
+}
+
+.centered {
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.productList {
+  /* border: 2px solid gold; */
+  padding-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 0.4rem;
+  gap: 0.4rem;
+}
+
+.productList li {
+  width: 45%;
+}
+
+.cartItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+article {
+  /* border: 2px solid hotpink; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  border: 2px solid var(--black-light);
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+}
+
+article img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.counter {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.counter span {
+  font-size: 1.4rem;
+}
+
+.counter button {
+  padding: 0.4rem 0.8rem;
+  font: inherit;
+  border: 2px solid var(--black-light);
+  border-radius: 8px;
+}
+
+.totalPrice {
+  display: block;
+  padding: 1rem 0.4rem;
+  font-weight: bold;
+  font-size: 1.6rem;
 }
