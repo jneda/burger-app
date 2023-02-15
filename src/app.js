@@ -23,7 +23,7 @@ function Product(props) {
   const { id, name, price, image } = props.details;
   const imagePath = "public/assets/" + image;
   return (
-    <article className="centered" onClick={() => props.onClick(id)}>
+    <article onClick={() => props.onClick(id)}>
       <img src={imagePath} alt={name}></img>
       <h2>{name}</h2>
       <span>{price / 100} €</span>
@@ -43,7 +43,7 @@ function Counter(props) {
 
 function Menu(props) {
   const menuItems = props.products.map((product, index) => (
-    <li key={product.id} index={index}>
+    <li className="centered" key={product.id} index={index}>
       <Product
         details={product}
         onClick={() => props.onAddProduct(product.id)}
@@ -61,7 +61,7 @@ function Menu(props) {
 function Cart(props) {
   const orderedItemsData = props.orderedItems || [];
   const orderedItems = orderedItemsData.map((orderedItem) => (
-    <li key={orderedItem.id} className="cartItem">
+    <li className="cartItem centered" key={orderedItem.id}>
       <Product details={orderedItem} />
       <Counter
         quantity={orderedItem.quantity}
