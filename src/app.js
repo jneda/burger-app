@@ -23,7 +23,7 @@ function Product(props) {
   const { id, name, price, image } = props.details;
   const imagePath = "public/assets/" + image;
   return (
-    <article onClick={() => props.handleAddProduct ? props.handleAddProduct(id) : undefined}>
+    <article onClick={props.handleAddProduct ? props.handleAddProduct : undefined}>
       <img src={imagePath} alt={name}></img>
       <h2>{name}</h2>
       <span>{price / 100} €</span>
@@ -115,7 +115,6 @@ class App extends React.Component {
       orderedItems: orderedItems,
       totalPrice: this.getTotalPrice(orderedItems),
     });
-    console.table(this.state);
   };
 
   handleRemoveProduct = (id) => {
@@ -144,6 +143,8 @@ class App extends React.Component {
   }
 
   render() {
+    console.table(this.state);
+
     return (
       <React.Fragment>
         <h1>🍔 Burger App ! 🍟</h1>
