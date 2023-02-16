@@ -26,7 +26,7 @@ function Product(props) {
     <article onClick={props.handleAddProduct ? props.handleAddProduct : undefined}>
       <img src={imagePath} alt={name}></img>
       <h2>{name}</h2>
-      <span>{price / 100} €</span>
+      <span>{(price / 100).toFixed(2)} €</span>
     </article>
   );
 }
