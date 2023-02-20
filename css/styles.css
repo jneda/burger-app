@@ -67,7 +67,12 @@ ul {
   flex-flow: row wrap;
   padding: 0.4rem;
   gap: 0.4rem;
-  justify-content: space-around;
+  justify-content: center;
+}
+
+.menu .productList::after {
+  content: "";
+  width: 45%;
 }
 
 .menu li {

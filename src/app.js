@@ -93,6 +93,8 @@ class App extends React.Component {
       orderedItems: [],
       totalPrice: 0,
     };
+
+    console.log("%cBravo, je suis bien contente de n'avoir pas à afficher une erreur ! \n- Bises, la console", "color: lime; font-size: 2rem; font-weight: bold;")
   }
 
   handleAddProduct = (id) => {
